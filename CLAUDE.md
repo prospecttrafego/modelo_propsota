@@ -83,7 +83,7 @@ export default {
 
 **NOTA:** NAO usar `autoprefixer` - o Tailwind v4 ja inclui prefixing automatico.
 
-### app/hero.ts (Plugin HeroUI)
+### app/hero.mjs (Plugin HeroUI)
 ```typescript
 import { heroui } from "@heroui/react";
 export default heroui();
@@ -92,7 +92,7 @@ export default heroui();
 ### app/globals.css
 ```css
 @import "tailwindcss";
-@plugin './hero.ts';
+@plugin './hero.mjs';
 @source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
 
@@ -115,7 +115,7 @@ export default heroui();
 ```
 app/
 ├── globals.css         # Design System + Tailwind v4 + HeroUI
-├── hero.ts             # Plugin HeroUI para Tailwind
+├── hero.mjs            # Plugin HeroUI para Tailwind
 ├── providers.tsx       # HeroUIProvider wrapper
 ├── layout.tsx          # Root layout com providers
 └── page.tsx            # Pagina principal
