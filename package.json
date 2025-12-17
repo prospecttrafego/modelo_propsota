@@ -1,0 +1,48 @@
+{
+  "name": "proposta-imersiva-2026",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0"
+  },
+  "dependencies": {
+    "next": "16.0.10",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+
+    "@heroui/react": "2.8.6",
+    "@heroui/theme": "2.4.24",
+
+    "framer-motion": "12.23.26",
+    "lenis": "1.3.1",
+
+    "@react-three/fiber": "9.4.2",
+    "@react-three/drei": "10.7.7",
+    "@react-three/postprocessing": "3.0.4",
+    "three": "0.182.0",
+
+    "zustand": "5.0.0",
+
+    "lucide-react": "0.561.0",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2",
+    "@types/react": "19.2.3",
+    "@types/react-dom": "19.2.3",
+    "@types/node": "22.12.0",
+
+    "tailwindcss": "4.1.18",
+    "@tailwindcss/postcss": "4.1.18",
+    "postcss": "8.5.1",
+
+    "@types/three": "0.182.0",
+
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.0.10"
+  }
+}
