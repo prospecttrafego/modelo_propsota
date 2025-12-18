@@ -90,33 +90,8 @@ export default heroui();
 ```
 
 ### app/globals.css
-```css
-@import "tailwindcss";
-@plugin './hero.mjs';
-@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
-@custom-variant dark (&:is(.dark *));
-
-@theme {
-  /* Colors - convert A.I Brand (Dark Mode) */
-  --color-brand-primary: #8EAA85;
-  --color-brand-primary-dark: #013117;
-  --color-brand-primary-light: #D5E8BC;
-  --color-brand-primary-soft: #486D4E;
-  --color-brand-background: #0A0F0C;
-  --color-brand-surface: #131A16;
-  --color-brand-surface-light: #1A2420;
-  --color-brand-surface-elevated: #212D28;
-  --color-brand-text: #E5E5DA;
-  --color-brand-text-secondary: #A3A89F;
-  --color-brand-muted: #6B7B6E;
-  --color-brand-border: rgba(142, 170, 133, 0.15);
-  --color-brand-primary-bg: rgba(142, 170, 133, 0.1);
-
-  /* Fonts */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Redonda', 'Inter', system-ui, sans-serif;
-}
-```
+Ver arquivo `app/globals.css` para o design system completo.
+Inclui: cores, fontes, animacoes, glass effects, HeroUI overrides.
 
 ---
 

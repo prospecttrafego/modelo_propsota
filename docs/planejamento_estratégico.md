@@ -1,7 +1,11 @@
 # 🚀 PLANEJAMENTO ESTRATÉGICO: Proposta Comercial Imersiva 2026
 
-> **Documento de Análise e Planejamento**  
-> **Elaborado em:** 16 de Dezembro de 2025  
+> **⚠️ DOCUMENTO HISTORICO - APENAS PARA REFERENCIA**
+> Este documento foi criado na fase de planejamento inicial.
+> Para informacoes atuais sobre arquitetura, versoes e design system, consulte `CLAUDE.md` na raiz do projeto.
+
+> **Documento de Análise e Planejamento**
+> **Elaborado em:** 16 de Dezembro de 2025
 > **Objetivo:** Transformar a proposta comercial em uma experiência tecnológica diferenciada + Sistema de geração automatizada
 
 ---
