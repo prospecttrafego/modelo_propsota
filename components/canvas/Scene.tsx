@@ -27,14 +27,11 @@ function Effects() {
 }
 
 function SceneContent() {
-  const scrollProgress = useStore((state) => state.scroll.progress)
-  const currentSection = useStore((state) => state.ui.currentSection)
-
   return (
     <>
       <Lights />
-      <HeroSphere scrollProgress={scrollProgress} currentSection={currentSection} />
-      <Particles count={2000} scrollProgress={scrollProgress} />
+      <HeroSphere />
+      <Particles count={2000} />
       <Effects />
     </>
   )
@@ -46,7 +43,7 @@ export function Scene() {
   return (
     <div ref={containerRef} className="canvas-container">
       <Canvas
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         camera={{ position: [0, 0, 5], fov: 75 }}
         gl={{
           antialias: true,

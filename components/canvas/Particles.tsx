@@ -7,7 +7,6 @@ import { useStore } from '@/hooks/useStore'
 
 interface ParticlesProps {
   count?: number
-  scrollProgress: number
 }
 
 function mulberry32(seed: number) {
@@ -20,9 +19,8 @@ function mulberry32(seed: number) {
   }
 }
 
-export function Particles({ count = 2000, scrollProgress }: ParticlesProps) {
+export function Particles({ count = 2000 }: ParticlesProps) {
   const pointsRef = useRef<THREE.Points>(null)
-  const mouse = useStore((state) => state.mouse)
   const primaryColor = useStore((state) => state.scene.primaryColor)
 
   const particlesPosition = useMemo(() => {
@@ -47,6 +45,9 @@ export function Particles({ count = 2000, scrollProgress }: ParticlesProps) {
 
   useFrame((state, delta) => {
     if (!pointsRef.current) return
+
+    const { mouse, scroll } = useStore.getState()
+    const scrollProgress = scroll.progress
 
     pointsRef.current.rotation.y += delta * 0.02
     pointsRef.current.rotation.x = mouse.normalizedY * 0.1

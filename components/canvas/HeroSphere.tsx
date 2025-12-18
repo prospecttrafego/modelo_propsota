@@ -1,20 +1,15 @@
 'use client'
 
-import { useRef, useMemo } from 'react'
+import { useRef, type ElementRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { MeshDistortMaterial, Sphere } from '@react-three/drei'
 import * as THREE from 'three'
 import { useStore } from '@/hooks/useStore'
 import { lerp } from '@/lib/utils'
 
-interface HeroSphereProps {
-  scrollProgress: number
-  currentSection: number
-}
-
-export function HeroSphere({ scrollProgress, currentSection }: HeroSphereProps) {
+export function HeroSphere() {
   const meshRef = useRef<THREE.Mesh>(null)
-  const mouse = useStore((state) => state.mouse)
+  const materialRef = useRef<ElementRef<typeof MeshDistortMaterial>>(null)
   const primaryColor = useStore((state) => state.scene.primaryColor)
   const secondaryColor = useStore((state) => state.scene.secondaryColor)
 
@@ -22,8 +17,12 @@ export function HeroSphere({ scrollProgress, currentSection }: HeroSphereProps) 
   const targetPosition = useRef(new THREE.Vector3(0, 0, 0))
   const targetScale = useRef(new THREE.Vector3(1, 1, 1))
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!meshRef.current) return
+
+    const { mouse, scroll, ui } = useStore.getState()
+    const scrollProgress = scroll.progress
+    const currentSection = ui.currentSection
 
     targetRotation.current.x = mouse.normalizedY * 0.3
     targetRotation.current.y = mouse.normalizedX * 0.3
@@ -49,22 +48,24 @@ export function HeroSphere({ scrollProgress, currentSection }: HeroSphereProps) 
 
     meshRef.current.position.lerp(targetPosition.current, delta * 2)
     meshRef.current.scale.lerp(targetScale.current, delta * 2)
-  })
 
-  const distortSpeed = useMemo(() => 2 + scrollProgress * 3, [scrollProgress])
-  const distortStrength = useMemo(() => 0.3 + scrollProgress * 0.2, [scrollProgress])
+    if (materialRef.current) {
+      materialRef.current.distort = 0.3 + scrollProgress * 0.2
+    }
+  })
 
   return (
     <Sphere ref={meshRef} args={[1.5, 64, 64]} position={[0, 0, 0]}>
       <MeshDistortMaterial
+        ref={materialRef}
         color={primaryColor}
         envMapIntensity={1.5}
         clearcoat={1}
         clearcoatRoughness={0}
         metalness={0.15}
         roughness={0.1}
-        distort={distortStrength}
-        speed={distortSpeed}
+        distort={0.3}
+        speed={2}
         emissive={secondaryColor}
         emissiveIntensity={0.4}
       />

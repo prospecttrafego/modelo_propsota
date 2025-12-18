@@ -66,6 +66,7 @@ export function SmoothScrollWrapper({ children }: SmoothScrollWrapperProps) {
 
     const elementToIndex = new Map<HTMLElement, number>()
     const ratios = new Map<HTMLElement, number>()
+    let lastActiveIndex = -1
 
     sections.forEach((el, idx) => elementToIndex.set(el, idx))
 
@@ -86,7 +87,10 @@ export function SmoothScrollWrapper({ children }: SmoothScrollWrapperProps) {
           }
         }
 
-        setCurrentSection(activeIndex)
+        if (activeIndex !== lastActiveIndex) {
+          lastActiveIndex = activeIndex
+          setCurrentSection(activeIndex)
+        }
       },
       {
         root: null,
