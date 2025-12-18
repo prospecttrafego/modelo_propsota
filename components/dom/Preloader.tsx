@@ -46,9 +46,9 @@ export function Preloader() {
             <Image
               src="/Logo Principal-07.png"
               alt="convert A.I"
-              width={240}
-              height={72}
-              className="h-16 w-auto mb-8"
+              width={340}
+              height={201}
+              className="h-32 w-auto mb-8"
               priority
             />
 

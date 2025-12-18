@@ -54,7 +54,7 @@ export function InteractiveDemo() {
         },
       ])
       setIsTyping(false)
-      setScene({ primaryColor: '#013117' })
+      setScene({ primaryColor: '#8EAA85' })
     }, 1500)
   }
 

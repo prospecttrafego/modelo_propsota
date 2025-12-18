@@ -58,15 +58,15 @@ export function HeroSphere({ scrollProgress, currentSection }: HeroSphereProps) 
     <Sphere ref={meshRef} args={[1.5, 64, 64]} position={[0, 0, 0]}>
       <MeshDistortMaterial
         color={primaryColor}
-        envMapIntensity={1}
+        envMapIntensity={1.5}
         clearcoat={1}
         clearcoatRoughness={0}
-        metalness={0.1}
+        metalness={0.15}
         roughness={0.1}
         distort={distortStrength}
         speed={distortSpeed}
         emissive={secondaryColor}
-        emissiveIntensity={0.2}
+        emissiveIntensity={0.4}
       />
     </Sphere>
   )

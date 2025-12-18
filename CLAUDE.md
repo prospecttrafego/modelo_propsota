@@ -97,17 +97,20 @@ export default heroui();
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Colors - convert A.I Brand */
-  --color-brand-primary: #013117;
-  --color-brand-primary-light: #486D4E;
-  --color-brand-primary-soft: #8EAA85;
-  --color-brand-primary-bg: #D5E8BC;
-  --color-brand-surface: #E5E5DA;
-  --color-brand-surface-light: #F6F6F3;
-  --color-brand-background: #FFFFFF;
-  --color-brand-text: #000000;
-  --color-brand-text-secondary: #616262;
-  --color-brand-muted: #929393;
+  /* Colors - convert A.I Brand (Dark Mode) */
+  --color-brand-primary: #8EAA85;
+  --color-brand-primary-dark: #013117;
+  --color-brand-primary-light: #D5E8BC;
+  --color-brand-primary-soft: #486D4E;
+  --color-brand-background: #0A0F0C;
+  --color-brand-surface: #131A16;
+  --color-brand-surface-light: #1A2420;
+  --color-brand-surface-elevated: #212D28;
+  --color-brand-text: #E5E5DA;
+  --color-brand-text-secondary: #A3A89F;
+  --color-brand-muted: #6B7B6E;
+  --color-brand-border: rgba(142, 170, 133, 0.15);
+  --color-brand-primary-bg: rgba(142, 170, 133, 0.1);
 
   /* Fonts */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -202,28 +205,31 @@ npm run lint       # Verificar codigo
 
 ---
 
-## Design System - convert A.I
+## Design System - convert A.I (Dark Mode)
 
 ### Identidade Visual
 
 **Nome:** convert A.I
 **Tagline:** atendimento personalizado
-**Estilo:** Profissional, tecnologico, humanizado
+**Estilo:** Profissional, tecnologico, imersivo
+**Tema:** Dark mode fixo (maximiza impacto visual WebGL/3D)
 
-### Cores (Paleta Verde + Nude)
+### Cores (Dark Mode - Verde sobre Escuro)
 
 | Funcao | Cor | HEX |
 |--------|-----|-----|
-| **Primary** (CTAs, headlines) | Verde Escuro | `#013117` |
-| **Primary Light** (hover, secundario) | Verde Medio | `#486D4E` |
-| **Primary Soft** (destaques suaves) | Verde Claro | `#8EAA85` |
-| **Primary BG** (backgrounds de destaque) | Verde Suave | `#D5E8BC` |
-| **Surface** (cards, elementos) | Nude | `#E5E5DA` |
-| **Surface Light** (secoes alternadas) | Off-white | `#F6F6F3` |
-| **Background** (fundo principal) | Branco | `#FFFFFF` |
-| **Text** (texto principal) | Preto | `#000000` |
-| **Text Secondary** (texto secundario) | Cinza Escuro | `#616262` |
-| **Muted** (texto terciario) | Cinza | `#929393` |
+| **Background** (fundo principal) | Verde-Preto | `#0A0F0C` |
+| **Surface** (cards, elementos) | Verde Escuro | `#131A16` |
+| **Surface Light** (secoes alternadas) | Verde Escuro Claro | `#1A2420` |
+| **Surface Elevated** (modais, tooltips) | Verde Medio | `#212D28` |
+| **Primary** (CTAs, headlines, acentos) | Verde Claro | `#8EAA85` |
+| **Primary Light** (hover, destaques) | Verde Muito Claro | `#D5E8BC` |
+| **Primary Soft** (botoes secundarios) | Verde Medio | `#486D4E` |
+| **Primary Dark** (referencia marca) | Verde Original | `#013117` |
+| **Text** (texto principal) | Nude/Creme | `#E5E5DA` |
+| **Text Secondary** (texto secundario) | Cinza Verde | `#A3A89F` |
+| **Muted** (texto terciario) | Cinza Verde Escuro | `#6B7B6E` |
+| **Border** (bordas sutis) | Verde 15% | `rgba(142, 170, 133, 0.15)` |
 
 ### Tipografia
 
@@ -232,19 +238,33 @@ npm run lint       # Verificar codigo
 | **Headings** | Redonda (Plau Design) | Inter, system-ui |
 | **Body** | Inter | system-ui, sans-serif |
 
-### Principios de Design
+### Principios de Design (Dark Mode)
 
-1. **Sem gradientes** - Usar cores solidas
-2. **Sem efeitos neon/glow** - Sombras suaves e naturais
-3. **Tema claro** - Background branco com acentos verdes
-4. **Cards elevados** - Bordas sutis + sombras leves
-5. **Espacamento generoso** - Layout respirado e profissional
+1. **Dark mode fixo** - Maximiza impacto visual do WebGL/3D
+2. **Cores verdes claras no dark** - Inversao da paleta (claro sobre escuro)
+3. **Glow suave** - Efeitos de brilho verde para botoes e destaques
+4. **Cards com transparencia** - Glass effect com blur
+5. **Sombras profundas** - Sombras escuras para profundidade
+6. **Espacamento generoso** - Layout respirado e profissional
+
+### Efeitos 3D (WebGL)
+
+- **Background cena:** `#0A0F0C` (mesmo que background)
+- **Cor primaria 3D:** `#8EAA85` (verde claro)
+- **Cor secundaria 3D:** `#D5E8BC` (verde muito claro)
+- **Bloom intensidade:** 1.5 (aumentado para dark mode)
+- **Emissive intensity:** 0.4 (brilho proprio dos objetos)
 
 ### Logos Disponiveis
 
 - `Logo Principal-07.png` - Logo completa (icone + nome + tagline)
 - `Logo 2-07.png` - Logo em formato retangulo
-- `Logo 3-11.png` - Logo apenas texto (versao escura)
+- `Logo 3-11.png` - Logo apenas texto
+
+**NOTA:** Logos tem ~50% de espacamento interno. Usar tamanhos maiores no CSS:
+- Navbar: `h-16` (64px)
+- Footer: `h-24` (96px)
+- Preloader: `h-32` (128px)
 
 ---
 

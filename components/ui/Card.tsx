@@ -61,8 +61,8 @@ export function Card({ children, className, tilt = false, glow = false }: CardPr
         perspective: 1000,
       }}
       className={cn(
-        'relative p-6 rounded-2xl bg-brand-background border border-brand-primary/10 overflow-hidden',
-        'shadow-sm hover:shadow-md transition-shadow duration-300',
+        'relative p-6 rounded-2xl bg-brand-surface border border-brand-border overflow-hidden',
+        'shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 transition-shadow duration-300',
         className
       )}
     >
@@ -70,7 +70,7 @@ export function Card({ children, className, tilt = false, glow = false }: CardPr
         <div
           className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: `radial-gradient(600px circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(1, 49, 23, 0.08), transparent 40%)`,
+            background: `radial-gradient(600px circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(142, 170, 133, 0.15), transparent 40%)`,
           }}
         />
       )}

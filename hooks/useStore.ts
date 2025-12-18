@@ -83,9 +83,9 @@ export const useStore = create<Store>((set) => ({
 
   scene: {
     intensity: 1,
-    bloomIntensity: 1.2,
-    primaryColor: '#013117',
-    secondaryColor: '#486D4E',
+    bloomIntensity: 1.5,
+    primaryColor: '#8EAA85',
+    secondaryColor: '#D5E8BC',
     cameraPosition: [0, 0, 5],
     targetRotation: [0, 0, 0],
   },

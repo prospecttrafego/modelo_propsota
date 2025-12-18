@@ -4,17 +4,20 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Colors - convert A.I Brand */
-  --color-brand-primary: #013117;
-  --color-brand-primary-light: #486D4E;
-  --color-brand-primary-soft: #8EAA85;
-  --color-brand-primary-bg: #D5E8BC;
-  --color-brand-surface: #E5E5DA;
-  --color-brand-surface-light: #F6F6F3;
-  --color-brand-background: #FFFFFF;
-  --color-brand-text: #000000;
-  --color-brand-text-secondary: #616262;
-  --color-brand-muted: #929393;
+  /* Colors - convert A.I Brand (Dark Mode) */
+  --color-brand-primary: #8EAA85;
+  --color-brand-primary-dark: #013117;
+  --color-brand-primary-light: #D5E8BC;
+  --color-brand-primary-soft: #486D4E;
+  --color-brand-background: #0A0F0C;
+  --color-brand-surface: #131A16;
+  --color-brand-surface-light: #1A2420;
+  --color-brand-surface-elevated: #212D28;
+  --color-brand-text: #E5E5DA;
+  --color-brand-text-secondary: #A3A89F;
+  --color-brand-muted: #6B7B6E;
+  --color-brand-border: rgba(142, 170, 133, 0.15);
+  --color-brand-primary-bg: rgba(142, 170, 133, 0.1);
 
   /* Fonts */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -110,11 +113,11 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-brand-surface-light);
+    background: var(--color-brand-surface);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-brand-primary-light);
+    background: var(--color-brand-primary-soft);
     border-radius: 3px;
   }
 
@@ -125,41 +128,49 @@
 
 @layer components {
   .glass {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(10, 15, 12, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(1, 49, 23, 0.1);
+    border: 1px solid var(--color-brand-border);
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(19, 26, 22, 0.95);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(1, 49, 23, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-brand-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   }
 
   .card-elevated {
-    background: var(--color-brand-background);
-    border: 1px solid rgba(1, 49, 23, 0.08);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    background: var(--color-brand-surface);
+    border: 1px solid var(--color-brand-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
   .card-elevated:hover {
-    border-color: rgba(1, 49, 23, 0.15);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(142, 170, 133, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   }
 
   .text-accent {
     color: var(--color-brand-primary);
   }
 
+  .text-glow {
+    text-shadow: 0 0 30px rgba(142, 170, 133, 0.5);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(142, 170, 133, 0.3), 0 0 40px rgba(142, 170, 133, 0.1);
+  }
+
   .bg-section-alt {
-    background-color: var(--color-brand-surface-light);
+    background-color: var(--color-brand-surface);
   }
 
   .border-subtle {
-    border-color: rgba(1, 49, 23, 0.1);
+    border-color: var(--color-brand-border);
   }
 
   .magnetic-button {
@@ -209,26 +220,26 @@
   }
 }
 
-/* HeroUI Custom Theme - convert A.I */
-[data-theme="light"],
+/* HeroUI Custom Theme - convert A.I Dark */
+[data-theme="dark"],
 :root {
   --heroui-background: var(--color-brand-background);
   --heroui-foreground: var(--color-brand-text);
   --heroui-primary: var(--color-brand-primary);
-  --heroui-secondary: var(--color-brand-primary-light);
-  --heroui-content1: var(--color-brand-surface-light);
-  --heroui-content2: var(--color-brand-surface);
-  --heroui-content3: #d9d9d0;
-  --heroui-content4: #cdcdc4;
+  --heroui-secondary: var(--color-brand-primary-soft);
+  --heroui-content1: var(--color-brand-surface);
+  --heroui-content2: var(--color-brand-surface-light);
+  --heroui-content3: var(--color-brand-surface-elevated);
+  --heroui-content4: #2a3830;
   --heroui-default-50: var(--color-brand-background);
-  --heroui-default-100: var(--color-brand-surface-light);
-  --heroui-default-200: var(--color-brand-surface);
-  --heroui-default-300: #d9d9d0;
-  --heroui-default-400: #bdbdb4;
-  --heroui-default-500: var(--color-brand-muted);
-  --heroui-default-600: var(--color-brand-text-secondary);
-  --heroui-default-700: #4a4a4a;
-  --heroui-default-800: #2a2a2a;
+  --heroui-default-100: var(--color-brand-surface);
+  --heroui-default-200: var(--color-brand-surface-light);
+  --heroui-default-300: var(--color-brand-surface-elevated);
+  --heroui-default-400: var(--color-brand-muted);
+  --heroui-default-500: var(--color-brand-text-secondary);
+  --heroui-default-600: #b8bdb3;
+  --heroui-default-700: #cdd1c9;
+  --heroui-default-800: #e0e3dc;
   --heroui-default-900: var(--color-brand-text);
 }
 
@@ -238,7 +249,7 @@
 }
 
 [data-slot="input-wrapper"]:focus-within {
-  box-shadow: 0 0 0 2px var(--color-brand-primary), 0 0 20px rgba(1, 49, 23, 0.1);
+  box-shadow: 0 0 0 2px var(--color-brand-primary), 0 0 20px rgba(142, 170, 133, 0.2);
 }
 
 /* HeroUI Button Overrides */
@@ -253,11 +264,11 @@
 
 /* HeroUI Modal Overrides */
 [data-slot="backdrop"] {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
 }
 
 [data-slot="base"][data-placement="center"] {
-  background: var(--color-brand-background);
-  border: 1px solid rgba(1, 49, 23, 0.1);
+  background: var(--color-brand-surface);
+  border: 1px solid var(--color-brand-border);
 }

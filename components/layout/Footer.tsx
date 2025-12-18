@@ -18,9 +18,9 @@ export function Footer() {
               <Image
                 src="/Logo Principal-07.png"
                 alt="convert A.I"
-                width={180}
-                height={54}
-                className="h-12 w-auto"
+                width={300}
+                height={177}
+                className="h-24 w-auto"
               />
             </motion.a>
             <p className="text-brand-text-secondary max-w-md mb-6">

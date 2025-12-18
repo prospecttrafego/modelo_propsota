@@ -66,9 +66,9 @@ export function Navbar() {
             <Image
               src="/Logo Principal-07.png"
               alt="convert A.I"
-              width={160}
-              height={48}
-              className="h-10 w-auto"
+              width={260}
+              height={154}
+              className="h-16 w-auto"
               priority
             />
           </motion.a>

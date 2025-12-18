@@ -29,29 +29,29 @@ export function Lights() {
 
   return (
     <>
-      <ambientLight intensity={0.3} />
+      <ambientLight intensity={0.15} />
 
       <directionalLight
         position={[10, 10, 5]}
-        intensity={0.8}
-        color="#ffffff"
+        intensity={0.5}
+        color="#E5E5DA"
       />
 
       <pointLight
         ref={pointLight1Ref}
         position={[5, 3, 5]}
-        intensity={1.5}
+        intensity={2.5}
         color={primaryColor}
-        distance={20}
+        distance={25}
         decay={2}
       />
 
       <pointLight
         ref={pointLight2Ref}
         position={[-5, -3, 5]}
-        intensity={1.5}
+        intensity={2}
         color={secondaryColor}
-        distance={20}
+        distance={25}
         decay={2}
       />
 
@@ -59,7 +59,7 @@ export function Lights() {
         position={[0, 10, 0]}
         angle={0.3}
         penumbra={1}
-        intensity={0.8}
+        intensity={1.2}
         color={primaryColor}
         castShadow={false}
       />

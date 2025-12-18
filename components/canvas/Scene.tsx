@@ -54,8 +54,9 @@ export function Scene() {
           powerPreference: 'high-performance',
         }}
       >
-        <color attach="background" args={['#050505']} />
-        <fog attach="fog" args={['#050505', 5, 20]} />
+        {/* Fundo escuro esverdeado para dark mode */}
+        <color attach="background" args={['#0A0F0C']} />
+        <fog attach="fog" args={['#0A0F0C', 5, 20]} />
 
         <PerformanceMonitor
           onDecline={() => {

@@ -79,10 +79,10 @@ export function Particles({ count = 2000, scrollProgress }: ParticlesProps) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.02}
+        size={0.025}
         color={primaryColor}
         transparent
-        opacity={0.6}
+        opacity={0.8}
         sizeAttenuation
         depthWrite={false}
         blending={THREE.AdditiveBlending}
