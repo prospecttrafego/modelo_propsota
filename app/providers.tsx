@@ -2,6 +2,7 @@
 
 import { HeroUIProvider } from '@heroui/react'
 import { ReactNode } from 'react'
+import { SmoothScrollWrapper } from '@/components/layout/SmoothScrollWrapper'
 
 interface ProvidersProps {
   children: ReactNode
@@ -10,7 +11,9 @@ interface ProvidersProps {
 export function Providers({ children }: ProvidersProps) {
   return (
     <HeroUIProvider>
-      {children}
+      <SmoothScrollWrapper>
+        {children}
+      </SmoothScrollWrapper>
     </HeroUIProvider>
   )
 }

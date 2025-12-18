@@ -21,6 +21,9 @@ export function SmoothScrollWrapper({ children }: SmoothScrollWrapperProps) {
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 2,
+      anchors: {
+        offset: 100,
+      },
     })
 
     let lastScroll = 0

@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import { SmoothScrollWrapper } from '@/components/layout/SmoothScrollWrapper'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { Preloader } from '@/components/dom/Preloader'
@@ -39,21 +38,19 @@ export default function Home() {
 
       <MouseTracker />
 
-      <SmoothScrollWrapper>
-        <Navbar />
+      <Navbar />
 
-        <main className="content-layer">
-          <HeroSection />
-          <ProblemSection />
-          <SolutionSection />
-          <InteractiveDemo />
-          <ROICalculator />
-          <PricingSection />
-          <FinalCall />
-        </main>
+      <main className="content-layer">
+        <HeroSection />
+        <ProblemSection />
+        <SolutionSection />
+        <InteractiveDemo />
+        <ROICalculator />
+        <PricingSection />
+        <FinalCall />
+      </main>
 
-        <Footer />
-      </SmoothScrollWrapper>
+      <Footer />
     </>
   )
 }

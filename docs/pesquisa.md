@@ -1,5 +1,5 @@
 > **⚠️ DOCUMENTO HISTORICO - RESUMO DA PESQUISA INICIAL**
-> Para informacoes atuais, consulte `CLAUDE.md` na raiz do projeto.
+> Para informacoes atuais, consulte `spec.md` na raiz do projeto.
 
 🎯 RESUMO EXECUTIVO
 O que pesquisei:

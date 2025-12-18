@@ -80,19 +80,17 @@ Uma proposta comercial interativa e imersiva para vender servicos de automacao c
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings=0"
   },
   "dependencies": {
-    "next": "16.0.4",
+    "next": "16.0.10",
     "react": "19.2.3",
     "react-dom": "19.2.3",
 
     "@heroui/react": "2.8.6",
     "@heroui/theme": "2.4.24",
 
-    "framer-motion": "12.0.0",
-    "gsap": "3.13.2",
-    "@gsap/react": "2.1.2",
+    "framer-motion": "12.23.26",
     "lenis": "1.3.1",
 
     "@react-three/fiber": "9.4.2",
@@ -102,9 +100,8 @@ Uma proposta comercial interativa e imersiva para vender servicos de automacao c
 
     "zustand": "5.0.0",
 
-    "lucide-react": "0.585.0",
-    "tailwind-variants": "0.4.0",
-    "clsx": "2.2.0",
+    "lucide-react": "0.561.0",
+    "clsx": "2.1.1",
     "tailwind-merge": "3.0.0"
   },
   "devDependencies": {
@@ -113,19 +110,19 @@ Uma proposta comercial interativa e imersiva para vender servicos de automacao c
     "@types/react-dom": "19.2.3",
     "@types/node": "22.12.0",
 
-    "tailwindcss": "4.0.0",
-    "@tailwindcss/postcss": "4.0.0",
+    "tailwindcss": "4.1.18",
+    "@tailwindcss/postcss": "4.1.18",
     "postcss": "8.5.1",
 
     "@types/three": "0.182.0",
-    "r3f-perf": "7.3.0",
-    "glslify": "7.1.1",
 
-    "eslint": "9.18.0",
-    "eslint-config-next": "16.0.0"
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.0.10"
   }
 }
 ```
+
+> **Nota (Next.js 16):** `next lint` foi removido. Use `eslint` via `eslint.config.mjs` e rode `npm run lint` manualmente (o `next build` nao roda lint automaticamente).
 
 ### 2.3 Por que cada biblioteca
 
@@ -135,10 +132,9 @@ Uma proposta comercial interativa e imersiva para vender servicos de automacao c
 | **React 19.2.3** | Versao estavel obrigatoria - NAO usar outras versoes |
 | **HeroUI 2.8.6** | Componentes base modernos (Input, Select, Modal) para agilizar o desenvolvimento |
 | **Framer Motion 12** | Animacoes de interface (UI), transicoes de entrada e Shared Layout Animations |
-| **GSAP 3.13** | Indispensavel para ScrollTrigger. Controla a linha do tempo e "pina" elementos 3D |
 | **Lenis 1.3** | Smooth Scroll moderno. Permite controlar o "peso" do scroll para sensacao premium |
 | **R3F 9.4 + Drei 10.7** | Renderizacao 3D declarativa compativel com React 19 |
-| **Postprocessing 3** | Vital para o visual. Adiciona Bloom (neon), Noise (filme) e Depth of Field |
+| **Postprocessing 3** | Vital para o visual. Adiciona Bloom (glow), Noise (filme) e Vignette |
 | **Zustand 5** | Gerenciamento de Estado. Conecta Scroll <-> 3D <-> UI sem re-renders pesados |
 | **Tailwind v4** | Nova engine de estilizacao com compilacao instantanea |
 
@@ -156,17 +152,19 @@ npx create-next-app@latest proposta-2026 --typescript --tailwind --eslint
 ### 3.2 Instalacao das Dependencias
 
 ```bash
+# Instalacao recomendada (reproduzivel)
+npm ci
+
+# (Opcional) Instalacao manual (se estiver criando do zero)
+
 # 3D Core
 npm install three @react-three/fiber @react-three/drei @react-three/postprocessing
 
 # Animation & State
-npm install gsap @gsap/react framer-motion lenis zustand
+npm install framer-motion lenis zustand
 
 # UI & Utils
-npm install @heroui/react @heroui/theme lucide-react clsx tailwind-merge tailwind-variants
-
-# Dev Dependencies
-npm install -D @types/three r3f-perf glslify
+npm install @heroui/react @heroui/theme lucide-react clsx tailwind-merge
 ```
 
 ### 3.3 Configuracao Tailwind v4
@@ -188,7 +186,7 @@ export default {
 #### app/hero.mjs (Plugin HeroUI)
 
 ```typescript
-import { heroui } from "@heroui/react";
+import { heroui } from "@heroui/theme";
 export default heroui();
 ```
 
@@ -201,20 +199,36 @@ export default heroui();
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand-primary: #00E5FF;
-  --color-brand-secondary: #7000FF;
-  --color-brand-dark: #050505;
-  --color-brand-surface: #111111;
-  --color-brand-text: #EDEDED;
-  --color-brand-muted: #888888;
+  --color-brand-primary: #8EAA85;
+  --color-brand-secondary: #A7C2D9;
+  --color-brand-background: #0A0F0C;
+  --color-brand-surface: #131A16;
+  --color-brand-text: #E5E5DA;
+  --color-brand-muted: #6B7B6E;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Redonda', 'Inter', system-ui, sans-serif;
 }
 
 /* Configuracao Lenis */
 html.lenis, html.lenis body {
   height: auto;
 }
+```
+
+#### next.config.ts (Turbopack root)
+
+Em ambientes com multiplos `package-lock.json` acima do projeto, o Turbopack pode inferir o root incorretamente. Fixe o root:
+
+```ts
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+  turbopack: {
+    root: process.cwd(),
+  },
+}
+
+export default nextConfig
 ```
 
 ---
@@ -227,7 +241,7 @@ Estrutura de pastas focada em separacao de responsabilidades (3D vs DOM):
 app/
 ├── globals.css         # Design System + Tailwind v4 + HeroUI
 ├── hero.mjs            # Plugin HeroUI para Tailwind
-├── providers.tsx       # HeroUIProvider wrapper
+├── providers.tsx       # Providers (HeroUI + Lenis)
 ├── layout.tsx          # Root layout com providers
 └── page.tsx            # Composicao principal (Z-Index management)
 
@@ -251,14 +265,13 @@ components/
 │   ├── Card.tsx
 │   ├── AnimatedText.tsx
 │   └── Slider.tsx
-└── layout/             # SmoothScrollWrapper, Navbar, PageTransition
+└── layout/             # SmoothScrollWrapper, Navbar
     ├── SmoothScrollWrapper.tsx
     ├── Navbar.tsx
     └── Footer.tsx
 
 hooks/
 ├── useStore.ts         # ZUSTAND: Estado unico da verdade
-├── useScroll.ts        # Hook para normalizar dados do Lenis/GSAP
 └── useMouse.ts         # Tracking do mouse
 
 lib/
@@ -269,21 +282,21 @@ lib/
 
 ## 5. DESIGN SYSTEM
 
-### 5.1 Paleta de Cores (Cyberpunk Corporate)
+### 5.1 Paleta de Cores (Convert.AI)
 
 | Variavel | Cor | Uso |
 |----------|-----|-----|
-| `--color-brand-dark` | `#050505` | Background (Almost Black) |
-| `--color-brand-surface` | `#111111` | Cards com backdrop-blur |
-| `--color-brand-primary` | `#00E5FF` | Cyan Neon - Sensacao de IA/Tech |
-| `--color-brand-secondary` | `#7000FF` | Deep Purple - Profundidade |
-| `--color-brand-text` | `#EDEDED` | Off-white para leitura |
-| `--color-brand-muted` | `#888888` | Texto secundario |
+| `--color-brand-background` | `#0A0F0C` | Background (verde-preto) |
+| `--color-brand-surface` | `#131A16` | Surface / cards |
+| `--color-brand-primary` | `#8EAA85` | Verde principal (CTAs, acentos) |
+| `--color-brand-secondary` | `#A7C2D9` | Azul serenity (gradientes, detalhes) |
+| `--color-brand-text` | `#E5E5DA` | Nude/creme para leitura |
+| `--color-brand-muted` | `#6B7B6E` | Texto secundario |
 
 ### 5.2 Tipografia
 
-- **Headings:** Space Grotesk (`--font-display`) - Geometrica, futurista
-- **Body:** Inter (`--font-sans`) - Alta legibilidade para dados tecnicos
+- **Headings:** Redonda (`--font-display`) - Identidade Convert.AI
+- **Body:** Inter (`--font-sans`) - Alta legibilidade
 
 ---
 
@@ -329,10 +342,12 @@ A proposta eh um "One Page" longo com transicoes fluidas:
 
 ## 8. ANIMACOES E INTERACOES
 
-### 8.1 ScrollTrigger Workflow
+### 8.1 Scroll Workflow (Lenis + Framer Motion + Zustand)
 
-- **Pinning:** As secoes de texto rolam, mas o Canvas 3D fica "preso", mudando apenas o angulo da camera ou a iluminacao.
-- **Scrub:** A animacao 3D esta atrelada ao progresso do scroll (`scrub: 1` ou `0.5` para suavidade).
+- **Canvas fixo:** Um unico `<Canvas>` no fundo, com a UI rolando por cima.
+- **Sync:** O Lenis atualiza o Zustand com `progress`, `velocity` e `direction` em tempo real.
+- **Sections:** Um `IntersectionObserver` define `currentSection` para transicoes 3D entre etapas.
+- **Micro-animacoes:** Framer Motion (`useScroll`, `useTransform`) para animacoes por secao sem acoplar o app inteiro ao scroll.
 
 ### 8.2 Micro-interacoes
 
@@ -375,7 +390,7 @@ A proposta eh um "One Page" longo com transicoes fluidas:
 1. **Draco Compression:** Obrigatorio. Reduzir modelos GLB drasticamente.
 2. **Texture Resizing:** Texturas devem ser `.ktx2` ou `.webp`. Max 2048px.
 3. **Instancing:** Usar `InstancedMesh` para qualquer objeto repetido (particulas, grids).
-4. **Descarte:** Usar a ferramenta `r3f-perf` durante o dev para garantir Draw Calls < 100.
+4. **Monitoramento:** Usar `PerformanceMonitor` (Drei) e DevTools para garantir FPS estavel e draw calls controladas.
 5. **Lazy Loading:** Carregar texturas pesadas apenas quando a secao estiver proxima de aparecer (Intersection Observer).
 
 ---
@@ -386,7 +401,7 @@ A proposta eh um "One Page" longo com transicoes fluidas:
 - [ ] **Assets:** Modelos 3D adquiridos/criados e convertidos para GLB+Draco
 - [x] **Core:** Configuracao do Lenis (Scroll) e Canvas (R3F) funcionando juntos
 - [ ] **Scene 1 (Hero):** Implementar modelo principal com interacao de mouse
-- [ ] **Scroll Logic:** Implementar GSAP ScrollTrigger conectando secoes HTML ao Zustand
+- [x] **Scroll Logic:** Atualizar Zustand via Lenis + `IntersectionObserver` (progress + secao ativa)
 - [x] **UI Components:** Criar botoes, cards e inputs usando HeroUI com tema customizado
 - [ ] **Interactivity:** Conectar UI ao 3D (Ex: Slider de ROI altera a cor da cena)
 - [ ] **Polish:** Adicionar Post-processing (Bloom, Noise) e ajustar iluminacao

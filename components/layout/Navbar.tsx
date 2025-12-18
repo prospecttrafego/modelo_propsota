@@ -31,11 +31,7 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+  const closeMenu = () => {
     if (isMenuOpen) toggleMenu()
   }
 
@@ -55,10 +51,7 @@ export function Navbar() {
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           <motion.a
             href="#hero"
-            onClick={(e) => {
-              e.preventDefault()
-              handleNavClick('#hero')
-            }}
+            onClick={closeMenu}
             className="flex items-center"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -78,10 +71,7 @@ export function Navbar() {
               <motion.a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick(item.href)
-                }}
+                onClick={closeMenu}
                 className="text-sm text-brand-text-secondary hover:text-brand-primary transition-colors"
                 whileHover={{ y: -2 }}
               >
@@ -131,10 +121,7 @@ export function Navbar() {
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleNavClick(item.href)
-                    }}
+                    onClick={closeMenu}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}

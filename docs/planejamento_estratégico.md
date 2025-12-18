@@ -2,7 +2,7 @@
 
 > **⚠️ DOCUMENTO HISTORICO - APENAS PARA REFERENCIA**
 > Este documento foi criado na fase de planejamento inicial.
-> Para informacoes atuais sobre arquitetura, versoes e design system, consulte `CLAUDE.md` na raiz do projeto.
+> Para informacoes atuais sobre arquitetura, versoes e design system, consulte `spec.md` na raiz do projeto.
 
 > **Documento de Análise e Planejamento**
 > **Elaborado em:** 16 de Dezembro de 2025
