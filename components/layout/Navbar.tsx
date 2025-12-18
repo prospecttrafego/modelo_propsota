@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 import { useStore } from '@/hooks/useStore'
 import { cn } from '@/lib/utils'
@@ -58,11 +59,18 @@ export function Navbar() {
               e.preventDefault()
               handleNavClick('#hero')
             }}
-            className="text-2xl font-display font-bold gradient-text"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            ALMA
+            <Image
+              src="/Logo Principal-07.png"
+              alt="convert A.I"
+              width={160}
+              height={48}
+              className="h-10 w-auto"
+              priority
+            />
           </motion.a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -74,7 +82,7 @@ export function Navbar() {
                   e.preventDefault()
                   handleNavClick(item.href)
                 }}
-                className="text-sm text-brand-muted hover:text-brand-text transition-colors"
+                className="text-sm text-brand-text-secondary hover:text-brand-primary transition-colors"
                 whileHover={{ y: -2 }}
               >
                 {item.label}
@@ -107,7 +115,7 @@ export function Navbar() {
             className="fixed inset-0 z-30 md:hidden"
           >
             <div
-              className="absolute inset-0 bg-brand-dark/80 backdrop-blur-lg"
+              className="absolute inset-0 bg-brand-text/20 backdrop-blur-lg"
               onClick={toggleMenu}
             />
 
@@ -116,7 +124,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 20 }}
-              className="absolute right-0 top-0 bottom-0 w-80 bg-brand-surface p-8 pt-24"
+              className="absolute right-0 top-0 bottom-0 w-80 bg-brand-background p-8 pt-24 shadow-2xl"
             >
               <div className="space-y-6">
                 {navItems.map((item, i) => (

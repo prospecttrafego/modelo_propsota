@@ -43,10 +43,8 @@ export function ProblemSection() {
     <section
       ref={ref}
       id="problem"
-      className="relative min-h-screen flex items-center py-32"
+      className="relative min-h-screen flex items-center py-32 bg-brand-surface-light"
     >
-      <div className="absolute inset-0 bg-gradient-radial from-red-900/10 via-transparent to-transparent pointer-events-none" />
-
       <motion.div
         style={{ opacity, scale }}
         className="relative z-10 max-w-6xl mx-auto px-6"
@@ -61,14 +59,14 @@ export function ProblemSection() {
             text="em processos?"
             animation="words"
             delay={0.3}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-red-400 mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-brand-primary-light mb-8"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg text-brand-muted max-w-2xl mx-auto"
+            className="text-lg text-brand-text-secondary max-w-2xl mx-auto"
           >
             Reconheça os sinais. Empresas que não automatizam perdem
             competitividade a cada dia.
@@ -84,16 +82,16 @@ export function ProblemSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card tilt glow className="h-full border-red-500/20 hover:border-red-500/40 transition-colors">
+              <Card tilt className="h-full border-brand-primary-light/20 hover:border-brand-primary/30 transition-colors">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-red-500/10">
-                    <problem.icon className="w-6 h-6 text-red-400" />
+                  <div className="p-3 rounded-xl bg-brand-primary/10">
+                    <problem.icon className="w-6 h-6 text-brand-primary" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-brand-text mb-2">
                       {problem.title}
                     </h3>
-                    <p className="text-brand-muted">
+                    <p className="text-brand-text-secondary">
                       {problem.description}
                     </p>
                   </div>

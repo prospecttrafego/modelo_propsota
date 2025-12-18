@@ -51,7 +51,7 @@ export function ROICalculator() {
     <section
       ref={ref}
       id="roi"
-      className="relative min-h-screen flex items-center py-32"
+      className="relative min-h-screen flex items-center py-32 bg-brand-background"
     >
       <motion.div
         style={{ opacity }}
@@ -63,7 +63,7 @@ export function ROICalculator() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-primary/10 mb-8"
+            className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-primary-bg mb-8"
           >
             <Calculator className="w-10 h-10 text-brand-primary" />
           </motion.div>
@@ -78,7 +78,7 @@ export function ROICalculator() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg text-brand-muted max-w-2xl mx-auto"
+            className="text-lg text-brand-text-secondary max-w-2xl mx-auto"
           >
             Descubra quanto sua empresa pode economizar com automação.
             Ajuste os valores e veja o impacto em tempo real.
@@ -145,16 +145,16 @@ export function ROICalculator() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-6"
           >
-            <Card className="gradient-border">
+            <Card className="border-2 border-brand-primary/20">
               <div className="text-center">
-                <p className="text-sm text-brand-muted mb-2">
+                <p className="text-sm text-brand-text-secondary mb-2">
                   Economia Anual Estimada
                 </p>
                 <motion.p
                   key={calculations.yearlySavings}
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
-                  className="text-5xl md:text-6xl font-display font-bold gradient-text text-glow-primary"
+                  className="text-5xl md:text-6xl font-display font-bold text-brand-primary"
                 >
                   {formatCurrency(calculations.yearlySavings)}
                 </motion.p>
@@ -167,7 +167,7 @@ export function ROICalculator() {
                   <div className="p-2 rounded-lg bg-brand-primary/10">
                     <DollarSign className="w-5 h-5 text-brand-primary" />
                   </div>
-                  <span className="text-sm text-brand-muted">Economia Mensal</span>
+                  <span className="text-sm text-brand-text-secondary">Economia Mensal</span>
                 </div>
                 <p className="text-2xl font-bold text-brand-text">
                   {formatCurrency(calculations.monthlySavings)}
@@ -176,10 +176,10 @@ export function ROICalculator() {
 
               <Card>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-brand-secondary/10">
-                    <Clock className="w-5 h-5 text-brand-secondary" />
+                  <div className="p-2 rounded-lg bg-brand-primary-light/10">
+                    <Clock className="w-5 h-5 text-brand-primary-light" />
                   </div>
-                  <span className="text-sm text-brand-muted">Horas Liberadas</span>
+                  <span className="text-sm text-brand-text-secondary">Horas Liberadas</span>
                 </div>
                 <p className="text-2xl font-bold text-brand-text">
                   {formatNumber(Math.round(calculations.automatedHours))}h/mês
@@ -188,10 +188,10 @@ export function ROICalculator() {
 
               <Card>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-green-500/10">
-                    <TrendingUp className="w-5 h-5 text-green-400" />
+                  <div className="p-2 rounded-lg bg-brand-primary-soft/30">
+                    <TrendingUp className="w-5 h-5 text-brand-primary" />
                   </div>
-                  <span className="text-sm text-brand-muted">Payback</span>
+                  <span className="text-sm text-brand-text-secondary">Payback</span>
                 </div>
                 <p className="text-2xl font-bold text-brand-text">
                   {calculations.paybackMonths.toFixed(1)} meses
@@ -200,10 +200,10 @@ export function ROICalculator() {
 
               <Card>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-yellow-500/10">
-                    <Calculator className="w-5 h-5 text-yellow-400" />
+                  <div className="p-2 rounded-lg bg-brand-primary-bg">
+                    <Calculator className="w-5 h-5 text-brand-primary" />
                   </div>
-                  <span className="text-sm text-brand-muted">ROI em 12 meses</span>
+                  <span className="text-sm text-brand-text-secondary">ROI em 12 meses</span>
                 </div>
                 <p className="text-2xl font-bold text-brand-text">
                   {Math.round((calculations.yearlySavings / 15000 - 1) * 100)}%

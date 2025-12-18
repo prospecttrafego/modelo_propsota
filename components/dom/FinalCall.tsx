@@ -21,10 +21,8 @@ export function FinalCall() {
     <section
       ref={ref}
       id="cta"
-      className="relative min-h-screen flex items-center justify-center py-32"
+      className="relative min-h-screen flex items-center justify-center py-32 bg-brand-surface-light"
     >
-      <div className="absolute inset-0 bg-gradient-radial from-brand-primary/10 via-transparent to-transparent pointer-events-none" />
-
       <motion.div
         style={{ opacity, scale }}
         className="relative z-10 text-center max-w-4xl mx-auto px-6"
@@ -34,7 +32,7 @@ export function FinalCall() {
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, type: 'spring' }}
-          className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-primary/10 mb-8 relative"
+          className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-primary-bg mb-8 relative"
         >
           <Rocket className="w-12 h-12 text-brand-primary" />
           <motion.div
@@ -53,7 +51,7 @@ export function FinalCall() {
           text="Transformar?"
           animation="words"
           delay={0.3}
-          className="text-4xl md:text-5xl lg:text-7xl font-display font-bold gradient-text text-glow-primary mb-8"
+          className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-brand-primary mb-8"
         />
 
         <motion.p
@@ -61,7 +59,7 @@ export function FinalCall() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-xl text-brand-muted max-w-2xl mx-auto mb-12"
+          className="text-xl text-brand-text-secondary max-w-2xl mx-auto mb-12"
         >
           Sua concorrência já está automatizando.
           Não fique para trás. Inicie sua transformação hoje.
@@ -94,7 +92,7 @@ export function FinalCall() {
           ].map((item) => (
             <div key={item.label} className="text-center">
               <p className="text-3xl font-bold text-brand-primary">{item.value}</p>
-              <p className="text-sm text-brand-muted">{item.label}</p>
+              <p className="text-sm text-brand-text-secondary">{item.label}</p>
             </div>
           ))}
         </motion.div>

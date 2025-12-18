@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button'
 import { useStore } from '@/hooks/useStore'
 
 const demoMessages = [
-  { role: 'bot', content: 'Olá! Sou o assistente virtual da ALMA. Como posso ajudar?' },
+  { role: 'bot', content: 'Olá! Sou o assistente virtual da convert A.I. Como posso ajudar?' },
   { role: 'user', content: 'Quero saber sobre planos de automação' },
   { role: 'bot', content: 'Ótimo! Temos 3 planos principais: Starter, Business e Enterprise. Qual o tamanho da sua operação?' },
 ]
@@ -43,7 +43,7 @@ export function InteractiveDemo() {
     setInput('')
     setIsTyping(true)
 
-    setScene({ primaryColor: '#00FF9D' })
+    setScene({ primaryColor: '#8EAA85' })
 
     setTimeout(() => {
       setMessages((prev) => [
@@ -54,7 +54,7 @@ export function InteractiveDemo() {
         },
       ])
       setIsTyping(false)
-      setScene({ primaryColor: '#00E5FF' })
+      setScene({ primaryColor: '#013117' })
     }, 1500)
   }
 
@@ -78,7 +78,7 @@ export function InteractiveDemo() {
     <section
       ref={ref}
       id="demo"
-      className="relative min-h-screen flex items-center py-32"
+      className="relative min-h-screen flex items-center py-32 bg-brand-surface-light"
     >
       <motion.div
         style={{ opacity }}
@@ -95,7 +95,7 @@ export function InteractiveDemo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg text-brand-muted max-w-2xl mx-auto"
+            className="text-lg text-brand-text-secondary max-w-2xl mx-auto"
           >
             Interaja com nosso assistente e veja a IA em ação.
             O visual 3D reage às suas interações em tempo real.
@@ -110,17 +110,17 @@ export function InteractiveDemo() {
             transition={{ duration: 0.5 }}
           >
             <Card className="h-[500px] flex flex-col">
-              <div className="flex items-center gap-3 pb-4 border-b border-white/10">
-                <div className="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center">
+              <div className="flex items-center gap-3 pb-4 border-b border-brand-primary/10">
+                <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center">
                   <MessageSquare className="w-5 h-5 text-brand-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-brand-text">Chat Demo</h3>
-                  <p className="text-xs text-brand-muted">Assistente ALMA</p>
+                  <p className="text-xs text-brand-text-secondary">Assistente convert A.I</p>
                 </div>
                 <div className="ml-auto flex items-center gap-1">
-                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs text-green-400">Online</span>
+                  <div className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
+                  <span className="text-xs text-brand-primary">Online</span>
                 </div>
               </div>
 
@@ -136,21 +136,21 @@ export function InteractiveDemo() {
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
                         msg.role === 'bot'
-                          ? 'bg-brand-primary/20'
-                          : 'bg-brand-secondary/20'
+                          ? 'bg-brand-primary/10'
+                          : 'bg-brand-primary-light/10'
                       }`}
                     >
                       {msg.role === 'bot' ? (
                         <Bot className="w-4 h-4 text-brand-primary" />
                       ) : (
-                        <User className="w-4 h-4 text-brand-secondary" />
+                        <User className="w-4 h-4 text-brand-primary-light" />
                       )}
                     </div>
                     <div
                       className={`px-4 py-2 rounded-2xl max-w-[80%] ${
                         msg.role === 'bot'
                           ? 'bg-brand-surface text-brand-text'
-                          : 'bg-brand-primary text-brand-dark'
+                          : 'bg-brand-primary text-white'
                       }`}
                     >
                       {msg.content}
@@ -164,7 +164,7 @@ export function InteractiveDemo() {
                     animate={{ opacity: 1 }}
                     className="flex gap-3"
                   >
-                    <div className="w-8 h-8 rounded-full bg-brand-primary/20 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-brand-primary/10 flex items-center justify-center">
                       <Bot className="w-4 h-4 text-brand-primary" />
                     </div>
                     <div className="px-4 py-2 rounded-2xl bg-brand-surface">
@@ -183,7 +183,7 @@ export function InteractiveDemo() {
                 )}
               </div>
 
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-4 border-t border-brand-primary/10">
                 <div className="flex gap-2 items-center">
                   <Input
                     type="text"
@@ -195,7 +195,7 @@ export function InteractiveDemo() {
                     radius="lg"
                     classNames={{
                       base: "flex-1",
-                      inputWrapper: "bg-brand-surface border-white/10 hover:border-brand-primary/50 focus-within:border-brand-primary data-[hover=true]:bg-brand-surface group-data-[focus=true]:bg-brand-surface",
+                      inputWrapper: "bg-brand-surface-light border-brand-primary/10 hover:border-brand-primary/30 focus-within:border-brand-primary data-[hover=true]:bg-brand-surface-light group-data-[focus=true]:bg-brand-surface-light",
                       input: "text-brand-text placeholder:text-brand-muted",
                     }}
                   />
@@ -223,7 +223,7 @@ export function InteractiveDemo() {
                   <button
                     key={action}
                     onClick={() => handleQuickAction(action)}
-                    className="p-3 rounded-xl bg-brand-surface hover:bg-brand-primary/10 border border-white/10 hover:border-brand-primary/50 text-sm text-brand-text transition-all text-left"
+                    className="p-3 rounded-xl bg-brand-surface-light hover:bg-brand-primary/10 border border-brand-primary/10 hover:border-brand-primary/30 text-sm text-brand-text transition-all text-left"
                   >
                     {action}
                   </button>
@@ -249,7 +249,7 @@ export function InteractiveDemo() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-3 text-brand-muted"
+                    className="flex items-center gap-3 text-brand-text-secondary"
                   >
                     <div className="w-2 h-2 rounded-full bg-brand-primary" />
                     {item}

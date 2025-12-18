@@ -3,13 +3,13 @@ import { Providers } from './providers'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ALMA | Proposta Comercial 2026 - Automação com IA',
-  description: 'Proposta comercial interativa para serviços de automação com IA. Agentes inteligentes, CRM, dashboards e muito mais.',
-  keywords: ['IA', 'Automação', 'Agentes de IA', 'CRM', 'Dashboard', 'Inteligência Artificial'],
-  authors: [{ name: 'ALMA' }],
+  title: 'convert A.I | Proposta Comercial 2026 - Atendimento Personalizado com IA',
+  description: 'Proposta comercial interativa para serviços de automação com IA. Agentes inteligentes de atendimento, CRM, dashboards e muito mais.',
+  keywords: ['IA', 'Automação', 'Agentes de IA', 'CRM', 'Dashboard', 'Inteligência Artificial', 'Atendimento', 'convert A.I'],
+  authors: [{ name: 'convert A.I' }],
   openGraph: {
-    title: 'ALMA | Proposta Comercial 2026',
-    description: 'O futuro da sua operação começa aqui.',
+    title: 'convert A.I | Proposta Comercial 2026',
+    description: 'Atendimento personalizado com inteligência artificial.',
     type: 'website',
   },
 }
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#050505',
+  themeColor: '#013117',
 }
 
 export default function RootLayout({
@@ -26,12 +26,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" className="light">
       <body className="antialiased">
         <Providers>
           {children}
         </Providers>
-        <div className="noise-overlay" />
       </body>
     </html>
   )

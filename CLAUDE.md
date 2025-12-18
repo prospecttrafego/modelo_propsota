@@ -1,4 +1,4 @@
-# ALMA - Proposta Comercial Imersiva 2026
+# convert A.I - Proposta Comercial Imersiva 2026
 
 ## Visao Geral
 
@@ -97,14 +97,21 @@ export default heroui();
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand-primary: #00E5FF;
-  --color-brand-secondary: #7000FF;
-  --color-brand-dark: #050505;
-  --color-brand-surface: #111111;
-  --color-brand-text: #EDEDED;
-  --color-brand-muted: #888888;
+  /* Colors - convert A.I Brand */
+  --color-brand-primary: #013117;
+  --color-brand-primary-light: #486D4E;
+  --color-brand-primary-soft: #8EAA85;
+  --color-brand-primary-bg: #D5E8BC;
+  --color-brand-surface: #E5E5DA;
+  --color-brand-surface-light: #F6F6F3;
+  --color-brand-background: #FFFFFF;
+  --color-brand-text: #000000;
+  --color-brand-text-secondary: #616262;
+  --color-brand-muted: #929393;
+
+  /* Fonts */
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Redonda', 'Inter', system-ui, sans-serif;
 }
 ```
 
@@ -152,6 +159,11 @@ hooks/
 
 lib/
 └── utils.ts            # cn(), formatCurrency(), lerp()
+
+public/
+├── Logo Principal-07.png   # Logo completa com icone
+├── Logo 2-07.png           # Logo em retangulo
+└── Logo 3-11.png           # Logo apenas texto
 ```
 
 ---
@@ -190,18 +202,49 @@ npm run lint       # Verificar codigo
 
 ---
 
-## Design System
+## Design System - convert A.I
 
-### Cores (Cyberpunk Corporate)
-- **Background:** `#050505` (--color-brand-dark)
-- **Surface:** `#111111` (--color-brand-surface)
-- **Primary:** `#00E5FF` (--color-brand-primary) - Cyan Neon
-- **Secondary:** `#7000FF` (--color-brand-secondary) - Deep Purple
-- **Text:** `#EDEDED` (--color-brand-text)
+### Identidade Visual
+
+**Nome:** convert A.I
+**Tagline:** atendimento personalizado
+**Estilo:** Profissional, tecnologico, humanizado
+
+### Cores (Paleta Verde + Nude)
+
+| Funcao | Cor | HEX |
+|--------|-----|-----|
+| **Primary** (CTAs, headlines) | Verde Escuro | `#013117` |
+| **Primary Light** (hover, secundario) | Verde Medio | `#486D4E` |
+| **Primary Soft** (destaques suaves) | Verde Claro | `#8EAA85` |
+| **Primary BG** (backgrounds de destaque) | Verde Suave | `#D5E8BC` |
+| **Surface** (cards, elementos) | Nude | `#E5E5DA` |
+| **Surface Light** (secoes alternadas) | Off-white | `#F6F6F3` |
+| **Background** (fundo principal) | Branco | `#FFFFFF` |
+| **Text** (texto principal) | Preto | `#000000` |
+| **Text Secondary** (texto secundario) | Cinza Escuro | `#616262` |
+| **Muted** (texto terciario) | Cinza | `#929393` |
 
 ### Tipografia
-- **Headings:** Space Grotesk (--font-display)
-- **Body:** Inter (--font-sans)
+
+| Uso | Fonte | Fallback |
+|-----|-------|----------|
+| **Headings** | Redonda (Plau Design) | Inter, system-ui |
+| **Body** | Inter | system-ui, sans-serif |
+
+### Principios de Design
+
+1. **Sem gradientes** - Usar cores solidas
+2. **Sem efeitos neon/glow** - Sombras suaves e naturais
+3. **Tema claro** - Background branco com acentos verdes
+4. **Cards elevados** - Bordas sutis + sombras leves
+5. **Espacamento generoso** - Layout respirado e profissional
+
+### Logos Disponiveis
+
+- `Logo Principal-07.png` - Logo completa (icone + nome + tagline)
+- `Logo 2-07.png` - Logo em formato retangulo
+- `Logo 3-11.png` - Logo apenas texto (versao escura)
 
 ---
 

@@ -20,7 +20,7 @@ export function HeroSection() {
     <section
       ref={ref}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-background"
     >
       <motion.div
         style={{ y, opacity }}
@@ -30,10 +30,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary-bg/50 border border-brand-primary/20 mb-8"
         >
           <Sparkles className="w-4 h-4 text-brand-primary" />
-          <span className="text-sm text-brand-muted">
+          <span className="text-sm text-brand-primary font-medium">
             Proposta Comercial 2026
           </span>
         </motion.div>
@@ -49,14 +49,14 @@ export function HeroSection() {
           text="Operação"
           animation="words"
           delay={0.8}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold gradient-text text-glow-primary mb-8"
+          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-brand-primary mb-8"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="text-lg md:text-xl text-brand-muted max-w-2xl mx-auto mb-12"
+          className="text-lg md:text-xl text-brand-text-secondary max-w-2xl mx-auto mb-12"
         >
           Automatize processos, escale atendimento e tome decisões com
           inteligência artificial de última geração.
@@ -83,7 +83,7 @@ export function HeroSection() {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-sm text-brand-muted">Role para explorar</span>
+        <span className="text-sm text-brand-text-secondary">Role para explorar</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
@@ -92,7 +92,7 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-dark pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-surface-light/50 pointer-events-none" />
     </section>
   )
 }

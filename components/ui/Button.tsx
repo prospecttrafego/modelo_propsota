@@ -41,10 +41,10 @@ export function Button({
   }
 
   const variants = {
-    primary: 'bg-brand-primary text-brand-dark hover:bg-brand-primary/90 glow-primary',
-    secondary: 'bg-brand-secondary text-white hover:bg-brand-secondary/90 glow-secondary',
-    outline: 'border border-brand-primary text-brand-primary hover:bg-brand-primary/10',
-    ghost: 'text-brand-text hover:bg-white/5',
+    primary: 'bg-brand-primary text-white hover:bg-brand-primary-light shadow-sm hover:shadow-md',
+    secondary: 'bg-brand-primary-light text-white hover:bg-brand-primary-soft',
+    outline: 'border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10',
+    ghost: 'text-brand-text hover:bg-brand-surface',
   }
 
   const sizes = {
@@ -65,7 +65,7 @@ export function Button({
       transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
       className={cn(
         'relative font-medium rounded-xl transition-all duration-300',
-        'focus:outline-none focus:ring-2 focus:ring-brand-primary/50',
+        'focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:ring-offset-2',
         'disabled:opacity-50 disabled:cursor-not-allowed',
         variants[variant],
         sizes[size],

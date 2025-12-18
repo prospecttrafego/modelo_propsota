@@ -76,7 +76,7 @@ export function PricingSection() {
     <section
       ref={ref}
       id="pricing"
-      className="relative min-h-screen flex items-center py-32"
+      className="relative min-h-screen flex items-center py-32 bg-brand-surface-light"
     >
       <motion.div
         style={{ opacity }}
@@ -92,14 +92,14 @@ export function PricingSection() {
             text="Transparente"
             animation="words"
             delay={0.3}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold gradient-text text-glow-primary mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-brand-primary mb-8"
           />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg text-brand-muted max-w-2xl mx-auto"
+            className="text-lg text-brand-text-secondary max-w-2xl mx-auto"
           >
             Escolha o plano ideal para sua operação.
             Todos incluem setup gratuito e garantia de satisfação.
@@ -119,14 +119,13 @@ export function PricingSection() {
             >
               <Card
                 tilt
-                glow
                 className={`h-full flex flex-col relative ${
-                  plan.popular ? 'border-brand-primary/50' : ''
+                  plan.popular ? 'border-2 border-brand-primary/50' : ''
                 }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-brand-primary text-brand-dark text-xs font-semibold">
+                    <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-brand-primary text-white text-xs font-semibold">
                       <Sparkles className="w-3 h-3" />
                       Mais Popular
                     </div>
@@ -137,7 +136,7 @@ export function PricingSection() {
                   <h3 className="text-2xl font-display font-bold text-brand-text mb-2">
                     {plan.name}
                   </h3>
-                  <p className="text-sm text-brand-muted mb-4">
+                  <p className="text-sm text-brand-text-secondary mb-4">
                     {plan.description}
                   </p>
                   <div className="flex items-baseline justify-center gap-1">
@@ -146,7 +145,7 @@ export function PricingSection() {
                         <span className="text-4xl font-bold text-brand-text">
                           {formatCurrency(plan.price)}
                         </span>
-                        <span className="text-brand-muted">{plan.period}</span>
+                        <span className="text-brand-text-secondary">{plan.period}</span>
                       </>
                     ) : (
                       <span className="text-2xl font-bold text-brand-text">
@@ -171,7 +170,7 @@ export function PricingSection() {
                       <div className="w-5 h-5 rounded-full bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-brand-primary" />
                       </div>
-                      <span className="text-sm text-brand-muted">{feature}</span>
+                      <span className="text-sm text-brand-text-secondary">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -197,7 +196,7 @@ export function PricingSection() {
         >
           <Card className="inline-flex items-center gap-4 px-6 py-4">
             <div className="text-left">
-              <p className="text-sm text-brand-muted">Precisa de algo específico?</p>
+              <p className="text-sm text-brand-text-secondary">Precisa de algo específico?</p>
               <p className="text-brand-text font-semibold">
                 Montamos uma proposta sob medida para você
               </p>
