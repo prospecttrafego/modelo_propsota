@@ -189,57 +189,36 @@ npm run lint       # Verificar codigo
 **Estilo:** Profissional, tecnologico, imersivo
 **Tema:** Dark mode fixo (maximiza impacto visual WebGL/3D)
 
-### Cores (Dark Mode - Verde sobre Escuro)
+### Cores
 
-| Funcao | Cor | HEX |
-|--------|-----|-----|
-| **Background** (fundo principal) | Verde-Preto | `#0A0F0C` |
-| **Surface** (cards, elementos) | Verde Escuro | `#131A16` |
-| **Surface Light** (secoes alternadas) | Verde Escuro Claro | `#1A2420` |
-| **Surface Elevated** (modais, tooltips) | Verde Medio | `#212D28` |
-| **Primary** (CTAs, headlines, acentos) | Verde Claro | `#8EAA85` |
-| **Primary Light** (hover, destaques) | Verde Muito Claro | `#D5E8BC` |
-| **Primary Soft** (botoes secundarios) | Verde Medio | `#486D4E` |
-| **Primary Dark** (referencia marca) | Verde Original | `#013117` |
-| **Text** (texto principal) | Nude/Creme | `#E5E5DA` |
-| **Text Secondary** (texto secundario) | Cinza Verde | `#A3A89F` |
-| **Muted** (texto terciario) | Cinza Verde Escuro | `#6B7B6E` |
-| **Border** (bordas sutis) | Verde 15% | `rgba(142, 170, 133, 0.15)` |
+Ver `app/globals.css` para todas as variaveis CSS.
+
+**Principais:**
+- Background: `#0A0F0C` (verde-preto)
+- Primary: `#8EAA85` (verde claro - CTAs, acentos)
+- Text: `#E5E5DA` (nude/creme)
 
 ### Tipografia
 
-| Uso | Fonte | Fallback |
-|-----|-------|----------|
-| **Headings** | Redonda (Plau Design) | Inter, system-ui |
-| **Body** | Inter | system-ui, sans-serif |
+- **Headings:** Redonda
+- **Body:** Inter
 
-### Principios de Design (Dark Mode)
+### Logos
 
-1. **Dark mode fixo** - Maximiza impacto visual do WebGL/3D
-2. **Cores verdes claras no dark** - Inversao da paleta (claro sobre escuro)
-3. **Glow suave** - Efeitos de brilho verde para botoes e destaques
-4. **Cards com transparencia** - Glass effect com blur
-5. **Sombras profundas** - Sombras escuras para profundidade
-6. **Espacamento generoso** - Layout respirado e profissional
+| Arquivo | Uso | Tamanho CSS |
+|---------|-----|-------------|
+| `Logo Principal-07.png` | Navbar | `h-16` |
+| `Logo Principal-07.png` | Footer | `h-24` |
+| `Logo Principal-07.png` | Preloader | `h-32` |
+
+**NOTA:** Logos tem ~50% de espacamento interno - usar tamanhos maiores.
 
 ### Efeitos 3D (WebGL)
 
-- **Background cena:** `#0A0F0C` (mesmo que background)
-- **Cor primaria 3D:** `#8EAA85` (verde claro)
-- **Cor secundaria 3D:** `#D5E8BC` (verde muito claro)
-- **Bloom intensidade:** 1.5 (aumentado para dark mode)
-- **Emissive intensity:** 0.4 (brilho proprio dos objetos)
-
-### Logos Disponiveis
-
-- `Logo Principal-07.png` - Logo completa (icone + nome + tagline)
-- `Logo 2-07.png` - Logo em formato retangulo
-- `Logo 3-11.png` - Logo apenas texto
-
-**NOTA:** Logos tem ~50% de espacamento interno. Usar tamanhos maiores no CSS:
-- Navbar: `h-16` (64px)
-- Footer: `h-24` (96px)
-- Preloader: `h-32` (128px)
+Cores definidas em `hooks/useStore.ts`:
+- Primary 3D: `#8EAA85`
+- Secondary 3D: `#D5E8BC`
+- Bloom: 1.5 | Emissive: 0.4
 
 ---
 
